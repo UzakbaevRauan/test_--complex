@@ -1,0 +1,163 @@
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 40px;
+            background: linear-gradient(to right, #e0f7fa, #ffffff);
+            color: #333;
+        }
+
+        input[type=text] {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        button {
+            padding: 10px 16px;
+            font-size: 16px;
+            background-color: #2196f3;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1976d2;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .main-content {
+            flex: 3;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            min-width: 300px;
+        }
+
+        .sidebar {
+            flex: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            min-width: 200px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .sidebar ul li {
+            margin: 12px 0;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #0288d1;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+        }
+
+        h2, h3 {
+            margin-top: 0;
+            color: #0288d1;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .last-city {
+            margin-top: 20px;
+            font-style: italic;
+            color: #555;
+        }
+
+        ul.hourly-list {
+            padding-left: 20px;
+            list-style: none;
+        }
+
+        ul.hourly-list li {
+            background: #e1f5fe;
+            border-left: 4px solid #0288d1;
+            margin-bottom: 8px;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .icon {
+            margin-right: 8px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar .city-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 0;
+        }
+
+        .sidebar .city-item a {
+            text-decoration: none;
+            color: #333;
+            flex-grow: 1;
+        }
+
+        .sidebar .count {
+            color: #666;
+            font-size: 0.9em;
+            margin-left: 10px;
+            white-space: nowrap;
+        }
+        .suggestions {
+            position: absolute;
+            top: 100%; /* сразу под инпутом */
+            left: 0;
+            right: 0;
+            border: 1px solid #ccc;
+            background: white;
+            max-height: 150px;
+            overflow-y: auto;
+            z-index: 1000;
+            font-size: 14px;
+        }
+
+        .suggestion-item {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        .suggestion-item:hover {
+            background-color: #eee;
+        }
+
+        .error-message {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }

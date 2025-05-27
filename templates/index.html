@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Прогноз погоды</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/autocomplete.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <form method="post" autocomplete="off" style="position: relative;">
+                <input type="text" id="city-input" name="city" placeholder="Введите город" required autocomplete="off" />
+                <div id="suggestions" class="suggestions"></div>
+                <button type="submit">Показать погоду</button>
+            </form>
+
+            {% if city %}
+                <h2><span class="icon">🌤️</span>Погода в {{ city }}, {{ country }}</h2>
+                <p><span class="icon">🌡️</span>Температура: {{ current.temperature }}°C</p>
+                <p><span class="icon">💨</span>Скорость ветра: {{ current.windspeed }} км/ч</p>
+                <p><span class="icon">🕒</span>Время: {{ current.time }}</p>
+
+                <h3>📅 Ближайшие часы:</h3>
+                <ul class="hourly-list">
+                    {% for t, temp, humid, wind in hourly %}
+                        <li>{{ t }} | {{ temp }}°C | Влажность: {{ humid }}% | Ветер: {{ wind }} км/ч</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {% if error %}
+            <div class="error-message">
+                {{ error }}
+            </div>
+            {% endif %}
+
+
+            {% if last_city %}
+                <p class="last-city">Вы в прошлый раз искали: <strong>{{ last_city }}</strong></p>
+            {% endif %}
+        </div>
+
+        <div class="sidebar">
+            <h3>🌍 Города, которые ищут чаще всего</h3>
+            <ul>
+                {% for c in top_cities %}
+                <li class="city-item">
+                    <a href="/?city={{ c.city }}"><span class="icon">🏙️</span>{{ c.city }}</a>
+                    <span class="count">{{ c.count }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
