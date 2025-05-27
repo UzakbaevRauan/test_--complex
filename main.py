@@ -3,7 +3,7 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 import requests
 from sqlalchemy import select
-from database import database, search_history  # Предполагается, что таблица с полями city и count
+from database import database, search_history  
 from sqlalchemy import func
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
@@ -24,7 +24,6 @@ async def shutdown():
     await database.disconnect()
 @app.get("/", response_class=HTMLResponse)
 async def home(request: Request, city: str = None):
-    # Если передан параметр city, обновляем/добавляем его в базу
     if city:
         city = city.strip()
         query = select(search_history).where(search_history.c.city == city)
